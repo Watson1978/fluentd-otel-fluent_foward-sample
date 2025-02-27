@@ -1,0 +1,13 @@
+receivers:
+  fluentforward:
+    endpoint: 0.0.0.0:24224
+
+exporters:
+  elasticsearch:
+    endpoint: http://elasticsearch:9200
+
+service:
+  pipelines:
+    logs:
+      receivers: [fluentforward]
+      exporters: [elasticsearch]
